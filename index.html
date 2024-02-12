@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Валентинка</title>
+</head>
+
+<body>
+    <img id="main-image" width="1600px" usemap="#valentine" src="base.png" alt="cute picture">
+    <map name="valentine">
+        <area shape="circle" coords="342,217,100" alt="no" onmouseover="changeMainImage('no.png')" />
+        <area title="Кляцни!" shape="circle" coords="766,181,100" alt="yes" onmouseover="changeMainImage('yes.png')"
+            onclick="window.open('https://forms.gle/Tg6VAwyfwjGbJxMn7', '_blank').focus();" />
+    </map>
+
+    <script>
+        const mainImage = document.getElementById("main-image");
+        const areas = document.querySelectorAll('area');
+
+        areas.forEach(area => {
+            area.addEventListener('mouseleave', function resetMainImage(event) {
+                changeMainImage('base.png')
+            });
+        });
+
+        function changeMainImage(path) {
+            mainImage.src = path;
+        }
+    </script>
+</body>
+
+</html>
